@@ -15,12 +15,12 @@ const NavBar = () => {
 
   return (
     <div className="fixed w-full top-0.5 left-0 z-50">
-      <div className="flex  text-xl justify-between items-center px-6 max-w-[1000px] mx-auto h-15   rounded-3xl ">
+      <div className="flex text-xl justify-between items-center px-6 max-w-[1000px] mx-auto h-15 rounded-3xl">
         {/* Logo */}
         <a href="#" 
-   className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 
-              text-4xl font-bold tracking-wide hover:scale-105 transition-transform duration-300 ease-in-out">
-             Kasun_Sri_
+          className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 
+                    text-4xl font-bold tracking-wide hover:scale-105 transition-transform duration-300 ease-in-out">
+          Kasun_Sri_
         </a>
 
         {/* Desktop Menu */}
@@ -53,10 +53,24 @@ const NavBar = () => {
           nav ? 'translate-x-0' : 'translate-x-full'
         } transition-transform duration-300 ease-in-out z-40`}
       >
+        {/* Back Button */}
+        <AiOutlineClose
+          onClick={closeNav}
+          size={35}
+          className="absolute top-6 right-6 text-white cursor-pointer hover:text-sky-400 transition-colors duration-300"
+        />
+
         <ul className="font-semibold text-3xl text-white space-y-8">
           {['about', 'portfolio', 'contact'].map((item) => (
             <li key={item}>
-              <Link to={item} onClick={closeNav} smooth={true} offset={50} duration={500}>
+              <Link 
+                to={item} 
+                onClick={closeNav}
+                smooth={true} 
+                offset={50} 
+                duration={500}
+                className="cursor-pointer hover:text-sky-400 transition-colors duration-300"
+              >
                 {item.charAt(0).toUpperCase() + item.slice(1)}
               </Link>
             </li>
